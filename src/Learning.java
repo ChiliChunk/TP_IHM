@@ -4,13 +4,13 @@ import java.awt.geom.Point2D;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class Main {
+public class Learning {
 
     public static void main(String[] args) {
         Figure listFigure = new Figure();
         listFigure.populate();
         Scanner in = new Scanner(System.in);
-        Ivy bus =  new Ivy("myAgent", "", null);
+        Ivy bus =  new Ivy("learning", "", null);
         Stroke stroke =  new Stroke();
         try{
             bus.start("127.255.255.255:2010");
