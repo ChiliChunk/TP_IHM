@@ -13,6 +13,7 @@ public class Recognizer {
     public static void main(String[] args) {
         listFigure = new Figure();
         listFigure.populate();
+        System.out.println(listFigure);
         Ivy bus =  new Ivy("recognizer", "", null);
         Stroke stroke =  new Stroke();
         try{
@@ -61,13 +62,18 @@ public class Recognizer {
             }
             distances.add(currentDistance);
         }
+        System.out.println(distances);
         int min = Integer.MAX_VALUE;
         int index = -1;
         for (int i = 0 ; i < distances.size() ; i++){
+            System.out.println(distances.get(i));
+            System.out.println(min);
             if(distances.get(i)<min){
+                min  = distances.get(i);
                 index = i;
             }
         }
+        System.out.println(index);
         List values = new ArrayList(listFigure.values());
         System.out.println(values.get(index));
         return (String) values.get(index);
