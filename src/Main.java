@@ -2,9 +2,14 @@ import fr.dgac.ivy.*;
 
 import java.awt.geom.Point2D;
 import java.sql.SQLOutput;
+import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
+        Figure listFigure = new Figure();
+        listFigure.populate();
+        Scanner in = new Scanner(System.in);
         Ivy bus =  new Ivy("myAgent", "", null);
         Stroke stroke =  new Stroke();
         try{
@@ -47,6 +52,11 @@ public class Main {
                     }
                     stroke.addPoint(Integer.parseInt(args[0]),Integer.parseInt(args[1]));
                     stroke.normalize();
+                    System.out.println("Entrez le nom de la figure");
+                    String s = in.nextLine();
+                    System.out.println("Vous avez entré "+s);
+                    listFigure.put(stroke ,s);
+                    listFigure.save();
                     for (Point2D.Double p : stroke.getListePoint()){
                         System.out.println(p);
                         try {
